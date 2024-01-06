@@ -8,11 +8,26 @@ public class Main {
     public static void main(String[] args) {
         int numberOfTeams = 10;
         createTeams(numberOfTeams);
-//        System.out.println("Lightside team:");
-//        lightSide.forEach(n-> System.out.println(n.toString()));
-//        System.out.println("---------------------------------------");
-//        System.out.println("Darkside team:");
-        darkSide.forEach(n-> n.getDistance(lightSide));
+        System.out.println("Lightside team:");
+        lightSide.forEach(n-> System.out.println(n.toString()));
+        System.out.println("---------------------------------------");
+        System.out.println("Darkside team:");
+        darkSide.forEach(n-> System.out.println(n.toString()));
+        System.out.println("---------------------------------------");
+
+        for (HeroBase hero : lightSide) {
+            if (hero.getClass() == Crossbowman.class ){
+                System.out.println("For " + hero + " nearest target= " + ((Crossbowman) hero).getNearestEnemy(darkSide));
+            }
+        }
+
+        for (HeroBase hero : darkSide) {
+            if (hero.getClass() == Sniper.class ){
+                System.out.println("For " + hero + " nearest target= " + ((Sniper) hero).getNearestEnemy(lightSide));
+            }
+        }
+
+//        darkSide.forEach(n-> n.getDistance(lightSide));
 
     }
 
