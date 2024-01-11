@@ -3,9 +3,13 @@ package units;
 import java.util.ArrayList;
 
 public class Crossbowman extends HeroBase{
+    protected int arrows;
+    protected float attackDistance;
     public Crossbowman(String name, int x, int y) {
         super(name, 150, 150, 10,
                 60, 0.3, 0.4, x, y);
+        arrows = 3;
+        attackDistance = 6;
     }
 
     @Override
