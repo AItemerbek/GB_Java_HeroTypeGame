@@ -1,6 +1,6 @@
 package units;
 
-public class Rogue extends HeroBase{
+public class Rogue extends Melee{
     protected boolean invisibleStatus;
     public Rogue(String name, int x, int y) {
         super(name, 300, 300, 40,

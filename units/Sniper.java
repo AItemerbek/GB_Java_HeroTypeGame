@@ -1,11 +1,5 @@
 package units;
-
-import java.util.ArrayList;
-
-
-public class Sniper extends HeroBase{
-    protected int arrows;
-    protected float attackDistance;
+public class Sniper extends Archer{
     public Sniper(String name, int x, int y) {
         super(name, 150, 150, 10,
                 60, 0.3, 0.4, x, y);
@@ -18,15 +12,4 @@ public class Sniper extends HeroBase{
         return ("units.Sniper: " + name + position);
     }
 
-    public HeroBase getNearestEnemy(ArrayList<HeroBase> enemies){
-        HeroBase nearestEnemy = enemies.getFirst();
-        float minDistance = position.distance(nearestEnemy.position);
-        for (HeroBase enemy : enemies) {
-            if (position.distance(enemy.position) < minDistance){
-                minDistance = position.distance(enemy.position);
-                nearestEnemy = enemy;
-            }
-        }
-        return nearestEnemy;
-    }
 }

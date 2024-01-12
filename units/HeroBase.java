@@ -30,4 +30,9 @@ abstract public class HeroBase {
         }
         System.out.println();
     }
+
+    @Override
+    public String toString() {
+        return (name + position);
+    }
 }

@@ -1,6 +1,6 @@
 package units;
 
-public class Pikeman extends HeroBase{
+public class Pikeman extends Melee{
     protected boolean shieldStatus;
     public Pikeman(String name, int x, int y) {
         super(name, 300, 300, 40,
