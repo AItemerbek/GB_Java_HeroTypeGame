@@ -11,7 +11,7 @@ abstract public class HeroBase implements Game{
 
 
     public HeroBase(String name, int maxHealth, int health, int armor, int damage,
-                    int initiative, double criticalChance, double evasion, int x, int y) {
+                    int initiative, double criticalChance, double evasion, int x, int y, boolean liveStatus) {
         this.name = name;
         this.maxHp = maxHealth;
         this.hp = health;
@@ -21,7 +21,7 @@ abstract public class HeroBase implements Game{
         this.criticalChance = criticalChance;
         this.evasion = evasion;
         this.position = new Coordinates(x,y);
-        this.liveStatus = true;
+        this.liveStatus = liveStatus;
     }
 
     public void getDistance(ArrayList<HeroBase> enemy){

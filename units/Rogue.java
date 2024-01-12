@@ -4,7 +4,7 @@ public class Rogue extends Melee{
     protected boolean invisibleStatus;
     public Rogue(String name, int x, int y) {
         super(name, 300, 300, 40,
-                70, 3, 0.1, 0.1, x, y);
+                70, 3, 0.1, 0.1, x, y, true);
         invisibleStatus = false;
     }
 
