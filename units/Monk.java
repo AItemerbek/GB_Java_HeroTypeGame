@@ -1,8 +1,6 @@
 package units;
 
-public class Monk extends HeroBase {
-
-    protected int mp;
+public class Monk extends Magician {
     public Monk(String name, int x, int y) {
         super(name, 100, 100, 20,
                 50, 0.2, 0.2, x, y);
@@ -11,6 +9,6 @@ public class Monk extends HeroBase {
 
     @Override
     public String toString() {
-        return ("units.Monk: " + name + position);
+        return ("units.Monk: " + super.toString());
     }
 }
