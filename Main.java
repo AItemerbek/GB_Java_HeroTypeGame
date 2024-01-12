@@ -8,13 +8,24 @@ public class Main {
     public static void main(String[] args) {
         int numberOfTeams = 10;
         createTeams(numberOfTeams);
-        System.out.println("Lightside team:");
-        lightSide.forEach(n-> System.out.println(n.toString()));
-        System.out.println("---------------------------------------");
-        System.out.println("Darkside team:");
-        darkSide.forEach(n-> System.out.println(n.toString()));
-        System.out.println("---------------------------------------");
+        ArrayList<HeroBase> heroOrder = new ArrayList<>();
+        heroOrder.addAll(lightSide);
+        heroOrder.addAll(darkSide);
+        heroOrder.sort((o1,o2) -> o1.getInitiative()-o2.getInitiative());
 
+//        a temporary solution for checking the algorithms operation
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Step № " + i + "--------------------------------");
+            teemSteps(heroOrder);
+        }
+
+    }
+
+    static void teemSteps(ArrayList<HeroBase> order){
+        for(HeroBase hero:order){
+            if (lightSide.contains(hero)) hero.step(darkSide);
+            else hero.step(lightSide);
+        }
     }
 
     static String getName() {
@@ -26,6 +37,10 @@ public class Main {
             darkSide.add(getRandomHero(random.nextInt(3,7),i,9));
             lightSide.add(getRandomHero(random.nextInt(4),i,0));
         }
+    }
+
+    static void showTeam(ArrayList<HeroBase> team){
+        team.forEach(n-> System.out.println(n.toString()));
     }
 
     static HeroBase getRandomHero(int choice, int x , int y) {

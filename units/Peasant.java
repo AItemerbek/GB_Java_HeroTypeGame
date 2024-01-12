@@ -8,6 +8,6 @@ public class Peasant extends HeroBase{
 
     @Override
     public String toString() {
-        return ("units.Peasant: " + name + position);
+        return ("units.Peasant: " + super.toString());
     }
 }
