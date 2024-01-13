@@ -25,11 +25,8 @@ abstract public class HeroBase implements Game {
         this.liveStatus = liveStatus;
     }
 
-    public void getDistance(ArrayList<HeroBase> enemy) {
-        for (HeroBase heroBase : enemy) {
-            System.out.printf("%.2f, ", position.distance(heroBase.position));
-        }
-        System.out.println();
+    public float getDistance(HeroBase enemy) {
+        return position.distance(enemy.position);
     }
     public int getInitiative(){
         return this.initiative;

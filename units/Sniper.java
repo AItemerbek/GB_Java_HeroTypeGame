@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Sniper extends Archer{
     public Sniper(String name, int x, int y) {
         super(name, 150, 150, 10,
-                60, 1, 0.3, 0.4, x, y, true);
+                60, 1, 0.2, 0.3, x, y, true);
         arrows = 3;
         attackDistance = 6;
     }
@@ -16,14 +16,19 @@ public class Sniper extends Archer{
     }
 
     public void step(ArrayList<HeroBase> enemies) {
-        HeroBase enemy = getNearestEnemy(enemies);
-        int currentDamage = calculateDamage(this,enemy);
         if (!getLiveStatus(this)) {
             System.out.println(this + " is dead...");
             return;
         }
+        HeroBase enemy = getNearestEnemy(enemies);
+        int currentDamage = calculateDamage(this,enemy) /
+                (int)(1 + this.getDistance(enemy) / attackDistance);
+        String typeOfDamage = " typical damage: ";
+        if (currentDamage * 10  <= damage) typeOfDamage = " miss: ";
+        if (currentDamage >= damage / (int)(1 + this.getDistance(enemy) / attackDistance))
+            typeOfDamage = " critical damage: ";
         if (this.arrows > 0) {
-            System.out.println(this + " attak " + enemy + " with damage " + currentDamage);
+            System.out.println(this + " attack " + enemy + " with " + typeOfDamage +  currentDamage);
             this.arrows -= 1;
             enemy.hp -= currentDamage;
             if (enemy.hp <=  0) {
@@ -31,7 +36,7 @@ public class Sniper extends Archer{
                 enemy.liveStatus = false;
             }
         }
-        else System.out.println(this + " arrows is empty");;
+        else System.out.println(this + " arrows is empty");
     }
 
 }

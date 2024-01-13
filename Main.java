@@ -1,6 +1,7 @@
 import units.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -11,7 +12,7 @@ public class Main {
         ArrayList<HeroBase> heroOrder = new ArrayList<>();
         heroOrder.addAll(lightSide);
         heroOrder.addAll(darkSide);
-        heroOrder.sort((o1,o2) -> o1.getInitiative()-o2.getInitiative());
+        heroOrder.sort(Comparator.comparingInt(HeroBase::getInitiative));
 
 //        a temporary solution for checking the algorithms operation
         for (int i = 0; i < 5; i++) {
