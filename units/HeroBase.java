@@ -36,6 +36,10 @@ abstract public class HeroBase implements Game {
         return heroBase.liveStatus;
     }
 
+    public String getType(){
+        return this.getClass().getSimpleName();
+    }
+
     public HeroBase getNearestEnemy(ArrayList<HeroBase> enemies){
         HeroBase nearestEnemy = enemies.getFirst();
         float minDistance = position.distance(nearestEnemy.position);
@@ -76,11 +80,6 @@ abstract public class HeroBase implements Game {
 
     @Override
     public void step(ArrayList<HeroBase> enemies, ArrayList<HeroBase> allies) {
-        if (!getLiveStatus(this)) {
-            System.out.println(this + " is dead...");
-            return;
-        }
-//        System.out.println("Method not implement in this class");
-    }
 
+    }
 }

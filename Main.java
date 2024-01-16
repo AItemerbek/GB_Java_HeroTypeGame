@@ -15,7 +15,7 @@ public class Main {
         heroOrder.sort(Comparator.comparingInt(HeroBase::getInitiative));
 
 //        a temporary solution for checking the algorithms operation
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             System.out.println("Step № " + i + "--------------------------------");
             teemSteps(heroOrder);
         }
