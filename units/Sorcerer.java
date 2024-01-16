@@ -15,7 +15,7 @@ public class Sorcerer extends Magician{
     }
 
     @Override
-    public void step(ArrayList<HeroBase> enemies) {
+    public void step(ArrayList<HeroBase> enemies, ArrayList<HeroBase> allies) {
         System.out.println(this + " step ");
     }
 }

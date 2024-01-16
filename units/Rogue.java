@@ -15,8 +15,5 @@ public class Rogue extends Melee{
         return ("units.Rogue: " + super.toString());
     }
 
-    @Override
-    public void step(ArrayList<HeroBase> enemies) {
-        System.out.println(this + " step ");
-    }
+
 }

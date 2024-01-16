@@ -24,8 +24,8 @@ public class Main {
 
     static void teemSteps(ArrayList<HeroBase> order){
         for(HeroBase hero:order){
-            if (lightSide.contains(hero)) hero.step(darkSide);
-            else hero.step(lightSide);
+            if (lightSide.contains(hero)) hero.step(darkSide,lightSide);
+            else hero.step(lightSide,darkSide);
         }
     }
 
@@ -35,8 +35,8 @@ public class Main {
 
     static void createTeams(int numbers) {
         for (int i = 0; i < numbers; i++) {
-            darkSide.add(getRandomHero(random.nextInt(3,7),i,9));
-            lightSide.add(getRandomHero(random.nextInt(4),i,0));
+            darkSide.add(getRandomHero(random.nextInt(3,7),9,i));
+            lightSide.add(getRandomHero(random.nextInt(4),0,i));
         }
     }
 

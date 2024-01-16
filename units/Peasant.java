@@ -13,8 +13,5 @@ public class Peasant extends HeroBase{
         return ("units.Peasant: " + super.toString());
     }
 
-    @Override
-    public void step(ArrayList<HeroBase> enemies) {
-        System.out.println(this + " step ");
-    }
+
 }

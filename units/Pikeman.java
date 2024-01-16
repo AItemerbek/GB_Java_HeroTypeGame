@@ -15,8 +15,4 @@ public class Pikeman extends Melee{
         return ("units.Pikeman: " + super.toString());
     }
 
-    @Override
-    public void step(ArrayList<HeroBase> enemies) {
-        System.out.println(this + " step ");
-    }
 }
