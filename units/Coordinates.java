@@ -10,7 +10,7 @@ public class Coordinates {
 
     @Override
     public String toString() {
-        return " Position(" + x + "," + y + ")";
+        return "(" + x + "," + y + ")";
     }
 
     public float distance(Coordinates enemyCoord){

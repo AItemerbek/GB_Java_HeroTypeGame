@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        int numberOfTeams = 10;
+        int numberOfTeams = 2;
         createTeams(numberOfTeams);
         ArrayList<HeroBase> heroOrder = new ArrayList<>();
         heroOrder.addAll(lightSide);
@@ -40,6 +40,10 @@ public class Main {
         for (HeroBase heroBase : team) {
             if (heroBase.getLiveStatus()) newTeam.add(heroBase);
         }
+        System.out.println("In new team: ");
+        for (HeroBase heroBase : newTeam) {
+            System.out.println(heroBase);
+        }
         return newTeam;
     }
 
@@ -57,8 +61,12 @@ public class Main {
 
     static void createTeams(int numbers) {
         for (int i = 0; i < numbers; i++) {
-            darkSide.add(getRandomHero(random.nextInt(3,7),9,i));
-            lightSide.add(getRandomHero(random.nextInt(4),0,i));
+//            временная заглушка
+//            darkSide.add(getRandomHero(random.nextInt(3,7),numbers - 1,i));
+//            lightSide.add(getRandomHero(random.nextInt(4),0,i));
+            darkSide.add(getRandomHero(6,numbers - 1,i));
+            lightSide.add(getRandomHero(2,0,i));
+
         }
     }
 

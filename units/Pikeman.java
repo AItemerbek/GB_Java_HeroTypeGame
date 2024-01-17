@@ -12,7 +12,7 @@ public class Pikeman extends Melee{
 
     @Override
     public String toString() {
-        return ("units.Pikeman: " + super.toString());
+        return ("Pikeman: " + super.toString());
     }
 
 }

@@ -6,13 +6,13 @@ public class Sniper extends Archer{
     public Sniper(String name, int x, int y) {
         super(name, 150, 150, 10,
                 60, 1, 0.2, 0.3, x, y, true);
-        arrows = 4;
+        arrows = 40;
         attackDistance = 6;
     }
 
     @Override
     public String toString() {
-        return ("units.Sniper: " + super.toString());
+        return ("Sniper: " + super.toString());
     }
 
     @Override

@@ -18,6 +18,7 @@ abstract class Archer extends HeroBase{
             return;
         }
         HeroBase enemy = getNearestEnemy(enemies);
+        if (enemy == null) return;
         if (this.arrows <1 ) {
             System.out.println(this + " arrows is empty");
             return;

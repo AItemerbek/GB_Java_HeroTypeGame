@@ -41,14 +41,15 @@ abstract public class HeroBase implements Game {
     }
 
     public HeroBase getNearestEnemy(ArrayList<HeroBase> enemies){
-        HeroBase nearestEnemy = enemies.getFirst();
-        float minDistance = position.distance(nearestEnemy.position);
+        HeroBase nearestEnemy = null;
         for (HeroBase enemy : enemies) {
-            if (position.distance(enemy.position) < minDistance && enemy.liveStatus){
-                minDistance = position.distance(enemy.position);
-                nearestEnemy = enemy;
+            if (enemy.liveStatus) {
+                if (nearestEnemy == null || position.distance(enemy.position) < position.distance(nearestEnemy.position) ) {
+                    nearestEnemy = enemy;
+                }
             }
         }
+        System.out.println(this + " find " + nearestEnemy);
         return nearestEnemy;
     }
 
@@ -70,6 +71,7 @@ abstract public class HeroBase implements Game {
         if (this.hp <= 0){
             this.hp = 0;
             this.liveStatus = false;
+            System.out.println(this + " was killed ");
         }
     }
 

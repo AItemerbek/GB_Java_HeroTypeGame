@@ -12,7 +12,7 @@ public class Rogue extends Melee{
 
     @Override
     public String toString() {
-        return ("units.Rogue: " + super.toString());
+        return ("Rogue: " + super.toString());
     }
 
 

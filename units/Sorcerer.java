@@ -11,7 +11,7 @@ public class Sorcerer extends Magician{
 
     @Override
     public String toString() {
-        return ("units.Sorcerer: " + super.toString());
+        return ("Sorcerer: " + super.toString());
     }
 
     @Override

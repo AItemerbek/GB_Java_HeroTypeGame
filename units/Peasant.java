@@ -34,7 +34,7 @@ public class Peasant extends HeroBase {
 
     @Override
     public String toString() {
-        return ("units.Peasant: " + super.toString());
+        return ("Peasant: " + super.toString());
     }
 
     @Override
