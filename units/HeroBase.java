@@ -49,7 +49,6 @@ abstract public class HeroBase implements Game {
                 }
             }
         }
-        System.out.println(this + " find " + nearestEnemy);
         return nearestEnemy;
     }
 
@@ -71,7 +70,6 @@ abstract public class HeroBase implements Game {
         if (this.hp <= 0){
             this.hp = 0;
             this.liveStatus = false;
-            System.out.println(this + " was killed ");
         }
     }
 

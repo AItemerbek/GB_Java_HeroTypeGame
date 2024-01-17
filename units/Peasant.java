@@ -43,6 +43,7 @@ public class Peasant extends HeroBase {
             System.out.println(this + " is dead and disappears from the battlefield forever ...");
             return;
         }
+
         ArrayList<Archer> alliesArchers = findAllArcher(allies);
         if (alliesArchers.isEmpty()) return;
         Archer target = findBestChoice(alliesArchers);
