@@ -21,7 +21,7 @@ public class Peasant extends HeroBase {
     }
 
     public Archer findBestChoice(ArrayList<Archer> archers) {
-        Archer target = archers.get(0);
+        Archer target = archers.getFirst();
         int minArrows = 1000;
         for (Archer archer : archers) {
             if (archer.arrows < minArrows) {
@@ -43,13 +43,12 @@ public class Peasant extends HeroBase {
             System.out.println(this + " is dead and disappears from the battlefield forever ...");
             return;
         }
-
         ArrayList<Archer> alliesArchers = findAllArcher(allies);
         if (alliesArchers.isEmpty()) return;
         Archer target = findBestChoice(alliesArchers);
         int quantity = 1;
         if (target.getType().equals("Crossbowman")) quantity = 2;
-        target.arrows +=quantity;
-        System.out.println(this + " add " + quantity +  " arrow(s) to " + target);
+        target.arrows += quantity;
+        System.out.println(this + " add " + quantity + " arrow(s) to " + target);
     }
 }

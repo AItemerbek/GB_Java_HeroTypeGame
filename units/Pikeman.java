@@ -13,7 +13,7 @@ public class Pikeman extends Melee {
 
     @Override
     public String toString() {
-        return ("Pikeman: " + super.toString()) + "armor=" + this.armor;
+        return ("Pikeman: " + super.toString());
     }
 
     @Override
@@ -27,8 +27,7 @@ public class Pikeman extends Melee {
         if (enemy == null) return;
         if (this.getDistance(enemy) < 2) {
             super.step(enemies, allies);
-        }
-        else {
+        } else {
             position = moveTo(enemy);
             shieldStatus = 1;
         }
