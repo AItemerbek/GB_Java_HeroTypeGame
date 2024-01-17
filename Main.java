@@ -2,7 +2,6 @@ import units.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Random;
 
 public class Main {
@@ -15,18 +14,41 @@ public class Main {
         heroOrder.sort(Comparator.comparingInt(HeroBase::getInitiative));
 
 //        a temporary solution for checking the algorithms operation
-        for (int i = 0; i < 1; i++) {
-            System.out.println("Step № " + i + "--------------------------------");
-            teemSteps(heroOrder);
+        int step = 0;
+        while (true) {
+            step++;
+            if(containsElements(heroOrder, lightSide)){
+                System.out.println("Darkside team WIN!!!");
+                break;
+            }
+            if(containsElements(heroOrder, darkSide)){
+                System.out.println("Lightside team WIN!!!");
+                break;
+            }
+            System.out.println("Step № " + step + "--------------------------------");
+            heroOrder =  teemSteps(heroOrder);
         }
 
     }
 
-    static void teemSteps(ArrayList<HeroBase> order){
+    protected static boolean containsElements(ArrayList<HeroBase> allHeroes, ArrayList<HeroBase> team) {
+        return team.stream().noneMatch(allHeroes::contains);
+    }
+
+    static ArrayList<HeroBase> cleanDeadHeroes(ArrayList<HeroBase> team){
+        ArrayList<HeroBase> newTeam = new ArrayList<>();
+        for (HeroBase heroBase : team) {
+            if (heroBase.getLiveStatus()) newTeam.add(heroBase);
+        }
+        return newTeam;
+    }
+
+    static ArrayList<HeroBase> teemSteps(ArrayList<HeroBase> order){
         for(HeroBase hero:order){
             if (lightSide.contains(hero)) hero.step(darkSide,lightSide);
             else hero.step(lightSide,darkSide);
         }
+        return cleanDeadHeroes(order);
     }
 
     static String getName() {
@@ -60,6 +82,4 @@ public class Main {
     static Random random = new Random();
     static ArrayList<HeroBase> darkSide = new ArrayList<>();
     static ArrayList<HeroBase> lightSide = new ArrayList<>();
-
-    static HashMap<HeroBase,ArrayList<Double>> allDistance = new HashMap<>();
 }

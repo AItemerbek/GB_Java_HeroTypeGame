@@ -13,8 +13,8 @@ abstract class Archer extends HeroBase{
 
     @Override
     public void step(ArrayList<HeroBase> enemies, ArrayList<HeroBase> allies) {
-        if (!getLiveStatus(this)) {
-            System.out.println(this + " is dead...");
+        if (!this.getLiveStatus()) {
+            System.out.println(this + " is dead and disappears from the battlefield forever ...");
             return;
         }
         HeroBase enemy = getNearestEnemy(enemies);

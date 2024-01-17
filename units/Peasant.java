@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Peasant extends HeroBase {
     public Peasant(String name, int x, int y) {
-        super(name, 100, 100, 0,
-                0, 4, 0, 0.2, x, y, true);
+        super(name, 200, 200, 0,
+                10, 4, 0, 0.2, x, y, true);
     }
 
     public ArrayList<Archer> findAllArcher(ArrayList<HeroBase> allies) {
@@ -39,8 +39,8 @@ public class Peasant extends HeroBase {
 
     @Override
     public void step(ArrayList<HeroBase> enemies, ArrayList<HeroBase> allies) {
-        if (!getLiveStatus(this)) {
-            System.out.println(this + " is dead...");
+        if (!this.getLiveStatus()) {
+            System.out.println(this + " is dead and disappears from the battlefield forever ...");
             return;
         }
         ArrayList<Archer> alliesArchers = findAllArcher(allies);

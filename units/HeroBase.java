@@ -32,8 +32,8 @@ abstract public class HeroBase implements Game {
         return this.initiative;
     }
 
-    protected boolean getLiveStatus(HeroBase heroBase) {
-        return heroBase.liveStatus;
+    public boolean getLiveStatus() {
+        return this.liveStatus;
     }
 
     public String getType(){
