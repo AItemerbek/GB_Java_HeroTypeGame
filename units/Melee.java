@@ -35,14 +35,10 @@ public class Melee extends HeroBase{
         return destanation;
     }
 
-    protected void moving(Coordinates newCoordinates){
-        this.position = newCoordinates;
-    }
-
     @Override
     public void step(ArrayList<HeroBase> enemies, ArrayList<HeroBase> allies) {
-        if (!getLiveStatus(this)) {
-            System.out.println(this + " is dead...");
+        if (!this.getLiveStatus()) {
+            System.out.println(this + " is dead and disappears from the battlefield forever ...");
             return;
         }
         HeroBase enemy = getNearestEnemy(enemies);
