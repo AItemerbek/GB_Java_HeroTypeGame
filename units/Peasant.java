@@ -50,5 +50,11 @@ public class Peasant extends HeroBase {
         if (target.getType().equals("Crossbowman")) quantity = 2;
         target.arrows += quantity;
         System.out.println(this + " add " + quantity + " arrow(s) to " + target);
+        HeroBase enemy = getNearestEnemy(enemies);
+        if (enemy == null) return;
+        if (this.getDistance(enemy) < 2) {
+            enemy.getDamage(calculateDamage(this, enemy));
+            System.out.println(this + " attack " + enemy + " with damage " + calculateDamage(this, enemy));
+        }
     }
 }
