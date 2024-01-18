@@ -37,10 +37,16 @@ public class Melee extends HeroBase {
 
     @Override
     public void step(ArrayList<HeroBase> enemies, ArrayList<HeroBase> allies) {
+        if (!this.getLiveStatus()) {
+            System.out.println(this + " is dead and disappears from the battlefield forever ...");
+            return;
+        }
         HeroBase enemy = getNearestEnemy(enemies);
         if (enemy == null) return;
-        enemy.getDamage(calculateDamage(this, enemy));
-        System.out.println(this + " attack " + enemy + " with damage " + calculateDamage(this, enemy));
+        if (this.getDistance(enemy) < 2) {
+            enemy.getDamage(calculateDamage(this, enemy));
+            System.out.println(this + " attack " + enemy + " with damage " + calculateDamage(this, enemy));
+        } else position = moveTo(enemy);
     }
 
 }
