@@ -14,8 +14,5 @@ public class Monk extends Magician {
         return ("Monk: " + super.toString());
     }
 
-    @Override
-    public void step(ArrayList<HeroBase> enemies, ArrayList<HeroBase> allies) {
-        System.out.println(this + " step ");
-    }
+
 }

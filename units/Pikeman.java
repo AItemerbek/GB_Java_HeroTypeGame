@@ -26,7 +26,7 @@ public class Pikeman extends Melee {
         if (curentPosition != this.position){
             shieldStatus = 1;
             armor += armor * shieldStatus;
-            System.out.println(this + " raised his shield ");
+            System.out.println( " and raised his shield ");
         }
     }
 }

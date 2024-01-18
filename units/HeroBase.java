@@ -73,6 +73,10 @@ abstract public class HeroBase implements Game {
         }
     }
 
+    public int getHealthReport(){
+        return this.maxHp - this.hp;
+    }
+
     @Override
     public String toString() {
         return (name + position + " HP= " + hp);

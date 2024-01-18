@@ -14,22 +14,22 @@ public class Melee extends HeroBase {
         Coordinates destanation = new Coordinates(position.x, position.y);
         if (delta.x < 0) {
             destanation.x++;
-            System.out.println(this + " move right to " + enemy);
+            System.out.print(this + " move right to " + enemy);
             return destanation;
         }
         if (delta.x > 0) {
             destanation.x--;
-            System.out.println(this + " move left to " + enemy);
+            System.out.print(this + " move left to " + enemy);
             return destanation;
         }
         if (delta.y < 0) {
             destanation.y++;
-            System.out.println(this + " move down to " + enemy);
+            System.out.print(this + " move down to " + enemy);
             return destanation;
         }
         if (delta.y > 0) {
             destanation.y--;
-            System.out.println(this + " move up to " + enemy);
+            System.out.print(this + " move up to " + enemy);
             return destanation;
         }
         return destanation;

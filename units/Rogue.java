@@ -27,7 +27,7 @@ public class Rogue extends Melee {
         if (curentPosition != this.position){
             invisibleStatus= 1;
             evasion += 0.9 * invisibleStatus;
-            System.out.println(this + " became invisible ");
+            System.out.println(" and became invisible ");
         }
     }
 }
