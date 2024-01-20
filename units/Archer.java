@@ -1,7 +1,6 @@
 package units;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 
 abstract class Archer extends HeroBase{
@@ -29,10 +28,6 @@ abstract class Archer extends HeroBase{
         int currentDamage = calculateDamage(this, enemy) /
                 (int) (1 + this.getDistance(enemy) / attackDistance);
         enemy.getDamage(currentDamage);
-        if (this.getType().equals("Sniper")) actions = " attack " + enemy.name + " " + currentDamage + " dmg";
-        else if (actions.length() < 40  && !actions.isEmpty() ) {
-            actions += " and attack " + enemy.name  + " " + currentDamage + " dmg";
-        }
-        else actions = " attack " + enemy.name  + " " + currentDamage + " dmg";
+        actions = " attack " + enemy.name + " " + currentDamage + " dmg";
     }
 }

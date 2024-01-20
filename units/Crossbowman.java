@@ -17,7 +17,11 @@ public class Crossbowman extends Archer {
 
     @Override
     public void step(ArrayList<HeroBase> enemies,ArrayList<HeroBase> allies) {
+        this.actions = "";
         super.step(enemies,allies);
+        String firstShot = this.actions;
         super.step(enemies,allies);
+        String secondShot = this.actions;
+        actions = firstShot + " &" + secondShot;
     }
 }

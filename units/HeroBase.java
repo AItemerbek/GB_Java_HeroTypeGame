@@ -27,6 +27,7 @@ abstract public class HeroBase implements Game {
         this.actions = "";
     }
 
+    static Random random = new Random();
     public float getDistance(HeroBase enemy) {
         return position.distance(enemy.position);
     }
@@ -75,15 +76,18 @@ abstract public class HeroBase implements Game {
         return step;
     }
 
+    public double dice(){
+        return random.nextDouble(0.8,1.2);
+    }
+
     public int calculateDamage(HeroBase self, HeroBase enemy) {
-        Random random = new Random();
         int criticalDamage = 1;
         int evaletionEffect = 1;
         double randomCritValue = random.nextDouble();
         if (randomCritValue <= self.criticalChance) criticalDamage = 2;
         double randomEvValue = random.nextDouble();
         if (randomEvValue <= enemy.evasion) evaletionEffect = 10;
-        return (int) ((self.damage * criticalDamage) * (100 - enemy.armor) * 0.01 / evaletionEffect);
+        return (int) (dice() * ((self.damage * criticalDamage) * (100 - enemy.armor) * 0.01 / evaletionEffect));
     }
 
 

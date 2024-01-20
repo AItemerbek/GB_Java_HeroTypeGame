@@ -1,4 +1,5 @@
 import units.*;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
@@ -13,9 +14,10 @@ public class Main {
         heroOrder.sort(Comparator.comparingInt(HeroBase::getInitiative));
 
         Scanner scanner = new Scanner(System.in);
+        int steps = 0;
         while (true) {
             View.view();
-//            scanner.nextLine();
+            scanner.nextLine();
             if (containsElements(heroOrder, lightSide)) {
                 System.out.println("Darkside team WIN!!!");
                 break;
@@ -24,7 +26,12 @@ public class Main {
                 System.out.println("Lightside team WIN!!!");
                 break;
             }
+            if (steps == 200) {
+                System.out.println("Draw!!!");
+                break;
+            }
             heroOrder = teemSteps(heroOrder);
+            steps++;
         }
     }
 
@@ -54,8 +61,8 @@ public class Main {
 
     static void createTeams(int numbers) {
         for (int i = 0; i < numbers; i++) {
-            darkSide.add(getRandomHero(random.nextInt(3, 7), i+1, numbers));
-            lightSide.add(getRandomHero(random.nextInt(4), i+1, 1));
+            darkSide.add(getRandomHero(random.nextInt(3, 7), i + 1, numbers));
+            lightSide.add(getRandomHero(random.nextInt(4), i + 1, 1));
         }
     }
 

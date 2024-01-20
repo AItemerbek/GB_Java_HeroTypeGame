@@ -33,7 +33,7 @@ public class View {
                     break;
                 }
                 if (Main.darkSide.contains(human)) out = "|" + (AnsiColors.ANSI_GREEN + human.getType().charAt(0) + AnsiColors.ANSI_RESET);
-                if (Main.lightSide.contains(human)) out = "|" + (AnsiColors.ANSI_BLUE + human.getType().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.lightSide.contains(human)) out = "|" + (AnsiColors.ANSI_BLUE + human.getType().charAt(0)  + AnsiColors.ANSI_RESET);
                 break;
             }
         }
