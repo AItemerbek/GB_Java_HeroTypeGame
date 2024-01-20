@@ -25,21 +25,36 @@ public class Magician extends HeroBase {
         return mostDamagedHero;
     }
 
-    @Override
-    public void step(ArrayList<HeroBase> enemies, ArrayList<HeroBase> allies) {
-        if (!this.getLiveStatus()) {
-            this.actions =  " is dead ...";
-            return;
-        }
-        HeroBase ally = getMostDamaged(allies);
-        if (ally == null) return;
+    public int calculateHeal(HeroBase ally){
         Random random = new Random();
         int criticalDamage = 1;
         double randomCritValue = random.nextDouble();
         if (randomCritValue <= this.criticalChance) criticalDamage = 2;
         int currentHeal = -damage * criticalDamage;
         if (currentHeal < -ally.getHealthReport()) currentHeal = -ally.getHealthReport();
+        return currentHeal;
+    }
+
+    @Override
+    public void step(ArrayList<HeroBase> enemies, ArrayList<HeroBase> allies) {
+        if (!this.getLiveStatus()) {
+            this.actions =  " is dead ...";
+            return;
+        }
+        if (mp <20) {
+            mp += 60;
+            actions = "Restores half of his mana";
+            return;
+        }
+        HeroBase ally = getMostDamaged(allies);
+        if (ally == null) return;
+        int currentHeal = calculateHeal(ally);
+        if (currentHeal == 0){
+            actions = "";
+            return;
+        }
         ally.getDamage(currentHeal);
+        mp -= 20;
         actions = " heal " + ally.name + " on " + -currentHeal;
     }
 }

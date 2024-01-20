@@ -17,7 +17,7 @@ public class Main {
         int steps = 0;
         while (true) {
             View.view();
-            scanner.nextLine();
+//            scanner.nextLine();
             if (containsElements(heroOrder, lightSide)) {
                 System.out.println("Darkside team WIN!!!");
                 break;
@@ -82,6 +82,5 @@ public class Main {
     static Random random = new Random();
     static ArrayList<HeroBase> darkSide = new ArrayList<>();
     static ArrayList<HeroBase> lightSide = new ArrayList<>();
-
     public static ArrayList<HeroBase> heroOrder = new ArrayList<>();
 }
