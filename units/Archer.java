@@ -28,6 +28,9 @@ abstract class Archer extends HeroBase{
         int currentDamage = calculateDamage(this, enemy) /
                 (int) (1 + this.getDistance(enemy) / attackDistance);
         enemy.getDamage(currentDamage);
-        actions = " attack " + enemy.name + " " + currentDamage + " dmg";
+        if (!enemy.getLiveStatus())
+            actions = " kill "  + enemy.name + " " + calculateDamage(this,enemy) + " dmg";
+        else
+            actions = " attack " + enemy.name + " " + calculateDamage(this,enemy) + " dmg";
     }
 }

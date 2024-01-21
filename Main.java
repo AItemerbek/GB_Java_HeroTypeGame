@@ -18,11 +18,11 @@ public class Main {
         while (true) {
             View.view();
 //            scanner.nextLine();
-            if (containsElements(heroOrder, lightSide)) {
+            if (teamFall(lightSide)) {
                 System.out.println("Darkside team WIN!!!");
                 break;
             }
-            if (containsElements(heroOrder, darkSide)) {
+            if (teamFall(darkSide)) {
                 System.out.println("Lightside team WIN!!!");
                 break;
             }
@@ -35,16 +35,11 @@ public class Main {
         }
     }
 
-    protected static boolean containsElements(ArrayList<HeroBase> allHeroes, ArrayList<HeroBase> team) {
-        return team.stream().noneMatch(allHeroes::contains);
-    }
-
-    static ArrayList<HeroBase> cleanDeadHeroes(ArrayList<HeroBase> team) {
-        ArrayList<HeroBase> newTeam = new ArrayList<>();
+    static boolean teamFall(ArrayList<HeroBase> team){
         for (HeroBase heroBase : team) {
-            if (heroBase.getLiveStatus()) newTeam.add(heroBase);
+            if (heroBase.getLiveStatus()) return false;
         }
-        return newTeam;
+        return true;
     }
 
     static ArrayList<HeroBase> teemSteps(ArrayList<HeroBase> order) {
@@ -52,7 +47,8 @@ public class Main {
             if (lightSide.contains(hero)) hero.step(darkSide, lightSide);
             else hero.step(lightSide, darkSide);
         }
-        return cleanDeadHeroes(order);
+//        return cleanDeadHeroes(order);
+        return order;
     }
 
     static String getName() {

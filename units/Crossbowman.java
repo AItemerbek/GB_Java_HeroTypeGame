@@ -22,6 +22,8 @@ public class Crossbowman extends Archer {
         String firstShot = this.actions;
         super.step(enemies,allies);
         String secondShot = this.actions;
-        actions = firstShot + " &" + secondShot;
+        actions = firstShot;
+        if (!actions.equals(" is dead ...") && !actions.equals(" is empty ") && !actions.isEmpty())
+            actions += " & " + secondShot;
     }
 }

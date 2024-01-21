@@ -45,7 +45,10 @@ public class Melee extends HeroBase {
         if (enemy == null) return;
         if (this.getDistance(enemy) < 2) {
             enemy.getDamage(calculateDamage(this, enemy));
-            this.actions = " attack " + enemy.getType() + " " + enemy.name + " " + calculateDamage(this,enemy) + " dmg";
+            if (!enemy.getLiveStatus())
+                this.actions = " kill "  + enemy.name + " " + calculateDamage(this,enemy) + " dmg";
+            else
+                this.actions = " attack " + enemy.name + " " + calculateDamage(this,enemy) + " dmg";
         } else
             if (emptyStep(allies,moveTo(enemy))) position = moveTo(enemy);
     }
