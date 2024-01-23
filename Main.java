@@ -15,7 +15,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int steps = 0;
         while (true) {
-//            View.view();
+            View.view();
 //            scanner.nextLine();
             if (teamFall(lightSide)) {
                 System.out.println("Darkside team WIN!!!");
