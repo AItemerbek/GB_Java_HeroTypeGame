@@ -12,7 +12,7 @@ public class Crossbowman extends Archer {
 
     @Override
     public String toString() {
-        return ("Crossbowman " + super.toString() + " Act: " + actions);
+        return ("Crossbowman " + super.toString() + " ↑" + arrows + ": " + actions);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Crossbowman extends Archer {
         super.step(enemies,allies);
         String secondShot = this.actions;
         actions = firstShot;
-        if (!actions.equals(" is dead ...") && !actions.equals(" is empty ") && !actions.isEmpty())
+        if (!actions.equals("is dead ...") && !actions.equals("is empty ") && !actions.isEmpty())
             actions += " & " + secondShot;
     }
 }

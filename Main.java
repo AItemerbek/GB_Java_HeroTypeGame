@@ -12,11 +12,10 @@ public class Main {
         heroOrder.addAll(lightSide);
         heroOrder.addAll(darkSide);
         heroOrder.sort(Comparator.comparingInt(HeroBase::getInitiative));
-
         Scanner scanner = new Scanner(System.in);
         int steps = 0;
         while (true) {
-            View.view();
+//            View.view();
 //            scanner.nextLine();
             if (teamFall(lightSide)) {
                 System.out.println("Darkside team WIN!!!");
@@ -26,7 +25,7 @@ public class Main {
                 System.out.println("Lightside team WIN!!!");
                 break;
             }
-            if (steps == 200) {
+            if (steps >= 200) {
                 System.out.println("Draw!!!");
                 break;
             }
@@ -57,20 +56,20 @@ public class Main {
 
     static void createTeams(int numbers) {
         for (int i = 0; i < numbers; i++) {
-            darkSide.add(getRandomHero(random.nextInt(3, 7), i + 1, numbers));
-            lightSide.add(getRandomHero(random.nextInt(4), i + 1, 1));
+            darkSide.add(getRandomHero(random.nextInt(6, 11), i + 1, numbers));
+            lightSide.add(getRandomHero(random.nextInt(6), i + 1, 1));
         }
     }
 
     static HeroBase getRandomHero(int choice, int x, int y) {
         return switch (choice) {
             case 0 -> new Monk(getName(), x, y);
-            case 1 -> new Pikeman(getName(), x, y);
-            case 2 -> new Crossbowman(getName(), x, y);
-            case 3 -> new Apprentice(getName(), x, y);
-            case 4 -> new Wizzard(getName(), x, y);
-            case 5 -> new Rogue(getName(), x, y);
-            case 6 -> new Sniper(getName(), x, y);
+            case 1, 2  -> new Pikeman(getName(), x, y);
+            case 3, 4 -> new Crossbowman(getName(), x, y);
+            case 5 -> new Apprentice(getName(), x, y);
+            case 6, 7 -> new Wizzard(getName(), x, y);
+            case 8, 9 -> new Rogue(getName(), x, y);
+            case 10 -> new Sniper(getName(), x, y);
             default -> null;
         };
     }
